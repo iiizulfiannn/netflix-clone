@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("org.jetbrains.kotlin.plugin.parcelize")
 }
 
 android {
@@ -39,6 +40,31 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    // outlineTextView
+    implementation(libs.outlinetextview) {
+        exclude(group = "com.android.support", module = "support-compat")
+    }
+
+    // retrofit
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
+    implementation(libs.gson)
+
+    // lifecycle
+    implementation(libs.androidx.lifecycle.viewmodel.android)
+
+    // glide
+    implementation(libs.glide)
+    annotationProcessor(libs.glide.compiler)
+
+    // navigation
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
+    // youtube player
+    implementation(libs.youtube.player)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
