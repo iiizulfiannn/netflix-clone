@@ -1,7 +1,9 @@
 package com.luckyfriday.netflixclone.data.dto
 
+import com.google.gson.annotations.SerializedName
+
 data class CreatedByDTO(
-    @SerializeName("id") val id: Int = 0,
+    @SerializedName("id") val id: Int = 0,
     @SerializeName("credit_id") val creditId: String = "",
     @SerializeName("name") val name: String = "",
     @SerializeName("gender") val gender: Int = 0,

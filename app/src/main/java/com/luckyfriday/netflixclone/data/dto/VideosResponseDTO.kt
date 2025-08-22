@@ -1,5 +1,7 @@
 package com.luckyfriday.netflixclone.data.dto
 
+import com.google.gson.annotations.SerializedName
+
 data class VideosResponseDTO(
     @SerializedName("id") val id: Int = 0,
     @SerializedName("results") val results: List<VideoResultDTO> = emptyList()

@@ -1,5 +1,7 @@
 package com.luckyfriday.netflixclone.data.dto.movies
 
+import com.google.gson.annotations.SerializedName
+
 data class MovieRecommendationResponseDTO(
     @SerializedName("page") val page: Int = 0,
     @SerializedName("results") val results: List<MovieRecommendationResultDTO> = emptyList(),

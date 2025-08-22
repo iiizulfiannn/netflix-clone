@@ -1,5 +1,6 @@
 package com.luckyfriday.netflixclone.data.dto.movies
 
+import com.google.gson.annotations.SerializedName
 import com.luckyfriday.netflixclone.data.dto.GenreDTO
 import com.luckyfriday.netflixclone.data.dto.ProductionCompanyDTO
 import com.luckyfriday.netflixclone.data.dto.ProductionCountryDTO
