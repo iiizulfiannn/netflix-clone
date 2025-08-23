@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.luckyfriday.netflixclone.R
+import com.luckyfriday.netflixclone.domain.entities.LayoutDataItem
 
 class HomeFragment : Fragment() {
 
@@ -19,4 +20,13 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
+    private fun setupHomeData() {
+        val homeData = listOf(
+            LayoutDataItem.SingleMain,
+            LayoutDataItem.NowPlaying,
+            LayoutDataItem.Upcoming,
+            LayoutDataItem.Popular,
+            LayoutDataItem.TopRated
+        )
+    }
 }
