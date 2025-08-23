@@ -8,7 +8,7 @@ import com.luckyfriday.netflixclone.domain.entities.movies.MovieDetail
 import com.luckyfriday.netflixclone.domain.usecases.GetMovieDetailUseCase
 import kotlinx.coroutines.launch
 
-class MovieSingleMainModel(private val getMovieDetailUseCase: GetMovieDetailUseCase) : ViewModel() {
+class MovieSingleMainViewModel(private val getMovieDetailUseCase: GetMovieDetailUseCase) : ViewModel() {
 
     private val _movie = MutableLiveData<MovieDetail>()
     val movie: LiveData<MovieDetail> = _movie
