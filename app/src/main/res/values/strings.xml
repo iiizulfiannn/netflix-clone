@@ -6,4 +6,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home_for_you_label">For You</string>
+    <string name="home_chip_tv_shows_label">Tv Shows</string>
+    <string name="home_chip_movies_label">Movies</string>
+    <string name="home_chip_categories_label">Categories</string>
 </resources>
