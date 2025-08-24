@@ -38,7 +38,7 @@ glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", versi
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 youtube-player = { group = "com.pierfrancescosoffritti.androidyoutubeplayer", name = "core", version.ref = "youtubePlayer" }
-outlinetextview = { group = "com.github.iambBedant", name = "OutlineTextView", version.ref = "outlineTextView" }
+outlinetextview = { group = "com.github.iamBedant", name = "OutlineTextView", version.ref = "outlineTextView" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
