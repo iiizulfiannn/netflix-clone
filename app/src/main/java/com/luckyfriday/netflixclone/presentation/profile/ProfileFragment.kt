@@ -10,8 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.luckyfriday.netflixclone.R
 import com.luckyfriday.netflixclone.domain.entities.LayoutDataItem
 import com.luckyfriday.netflixclone.presentation.maincomponent.adapter.MainAdapter
+import com.luckyfriday.netflixclone.presentation.widget.MovieListListener
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : Fragment(), MovieListListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,10 +39,14 @@ class ProfileFragment : Fragment() {
             LayoutDataItem.TopRated
         )
         val rvProfile = view?.findViewById<RecyclerView>(R.id.rv_profile)
-        val profileAdapter = MainAdapter(profileData)
+        val profileAdapter = MainAdapter(profileData, this)
         rvProfile?.apply {
             adapter = profileAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
+    }
+
+    override fun onMovieClicked(movieId: Int) {
+        TODO("Not yet implemented")
     }
 }

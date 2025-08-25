@@ -17,6 +17,7 @@ class MovieSingleMainViewModel(private val getMovieDetailUseCase: GetMovieDetail
         viewModelScope.launch {
             try {
                 val movie = getMovieDetailUseCase.invoke(129)
+                _movie.postValue(movie)
             } catch (t: Throwable) {
                 // do nothing
             }

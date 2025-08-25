@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.luckyfriday.netflixclone.MyApplication
 import com.luckyfriday.netflixclone.R
+import com.luckyfriday.netflixclone.presentation.widget.MovieListListener
 
 class MovieListNumberedWidget @JvmOverloads constructor(
     context: Context,
@@ -24,6 +25,7 @@ class MovieListNumberedWidget @JvmOverloads constructor(
     private lateinit var viewModel: MovieListNumberedViewModel
     private var category = "popular"
     private val viewModelStore = ViewModelStore()
+    private var listener: MovieListListener? = null
 
     init {
         LayoutInflater.from(context).inflate(R.layout.layout_widget_movie_list_regular, this, true)
@@ -56,7 +58,7 @@ class MovieListNumberedWidget @JvmOverloads constructor(
     private fun observeLiveData() {
         findViewTreeLifecycleOwner()?.let { lifecycleOwner ->
             viewModel.movieList.observe(lifecycleOwner) { movieList ->
-                val movieListNumberedAdapter = MovieListNumberedAdapter(movies = movieList)
+                val movieListNumberedAdapter = MovieListNumberedAdapter(movies = movieList, listener)
                 rvMoviePoster.apply {
                     adapter = movieListNumberedAdapter
                     layoutManager =
@@ -69,5 +71,9 @@ class MovieListNumberedWidget @JvmOverloads constructor(
     fun setCategory(category: String) {
         this.category = category
         tvTitle.text
+    }
+
+    fun setListener(listener: MovieListListener) {
+        this.listener = listener
     }
 }

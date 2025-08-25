@@ -9,6 +9,6 @@
 
     <style name="BlackBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
         <item name="backgroundTint">@android:color/black</item>
-        <item name="android:textColor">sans-serif</item>
+        <item name="android:fontFamily">sans-serif</item>
     </style>
 </resources>

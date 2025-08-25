@@ -9,9 +9,11 @@ import com.luckyfriday.netflixclone.presentation.maincomponent.viewholder.ListNu
 import com.luckyfriday.netflixclone.presentation.maincomponent.viewholder.ListRegularViewHolder
 import com.luckyfriday.netflixclone.presentation.maincomponent.viewholder.SingleMainViewHolder
 import com.luckyfriday.netflixclone.presentation.maincomponent.viewtype.MovieListType.*
+import com.luckyfriday.netflixclone.presentation.widget.MovieListListener
 
-class MainAdapter(private val layoutData: List<LayoutDataItem>) :
+class MainAdapter(private val layoutData: List<LayoutDataItem>, private val listener: MovieListListener) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             TYPE_LIST_REGULAR.ordinal -> {
@@ -36,11 +38,11 @@ class MainAdapter(private val layoutData: List<LayoutDataItem>) :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (layoutData[position]) {
-            is LayoutDataItem.Popular -> (holder as ListNumberedViewHolder).bind("popular")
-            is LayoutDataItem.NowPlaying -> (holder as ListRegularViewHolder).bind("now_playing")
-            is LayoutDataItem.Upcoming -> (holder as ListRegularViewHolder).bind("upcoming")
-            is LayoutDataItem.TopRated -> (holder as ListRegularViewHolder).bind("top_rated")
-            else -> (holder as SingleMainViewHolder).bind()
+            is LayoutDataItem.Popular -> (holder as ListNumberedViewHolder).bind("popular", listener)
+            is LayoutDataItem.NowPlaying -> (holder as ListRegularViewHolder).bind("now_playing", listener)
+            is LayoutDataItem.Upcoming -> (holder as ListRegularViewHolder).bind("upcoming", listener)
+            is LayoutDataItem.TopRated -> (holder as ListRegularViewHolder).bind("top_rated", listener)
+            else -> (holder as SingleMainViewHolder).bind(listener)
         }
     }
 

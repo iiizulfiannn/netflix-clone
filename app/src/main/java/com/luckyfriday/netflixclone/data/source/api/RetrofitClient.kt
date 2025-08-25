@@ -9,7 +9,7 @@ import java.util.Properties
 
 class RetrofitClient(private val context: Context) {
     companion object {
-        private const val BASE_URL = "https://api.themoviedb.org/3"
+        private const val BASE_URL = "https://api.themoviedb.org/3/"
     }
 
     private val okHttpClient = OkHttpClient.Builder()
@@ -29,9 +29,9 @@ class RetrofitClient(private val context: Context) {
 
     private fun getApiKey(): String {
         return try {
-            val inputSteram = context.assets.open("secrets.properties")
+            val inputStream = context.assets.open("secrets.properties")
             val properties = Properties()
-            properties.load(inputSteram)
+            properties.load(inputStream)
             properties.getProperty("API_KEY") ?: ""
         } catch (e: Exception) {
             ""

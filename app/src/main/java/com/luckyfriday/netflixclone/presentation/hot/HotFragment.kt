@@ -11,8 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.luckyfriday.netflixclone.MyApplication
 import com.luckyfriday.netflixclone.R
 import com.luckyfriday.netflixclone.domain.entities.movies.Movie
+import com.luckyfriday.netflixclone.presentation.widget.MovieListListener
 
-class HotFragment : Fragment() {
+class HotFragment : Fragment(), MovieListListener {
 
     private lateinit var rvMovieList: RecyclerView
     private lateinit var viewModel: HotViewModel
@@ -49,8 +50,12 @@ class HotFragment : Fragment() {
     private fun initList(movies: List<Movie>) {
         view?.let {
             rvMovieList = it.findViewById(R.id.rv_hot)
-            rvMovieList.adapter = HotListAdapter(movies)
+            rvMovieList.adapter = HotListAdapter(movies, this)
             rvMovieList.layoutManager = LinearLayoutManager(context)
         }
+    }
+
+    override fun onMovieClicked(movieId: Int) {
+        TODO("Not yet implemented")
     }
 }

@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.luckyfriday.netflixclone.MyApplication
 import com.luckyfriday.netflixclone.R
 import com.luckyfriday.netflixclone.domain.utils.ImageUtils.toImageUrl
+import com.luckyfriday.netflixclone.presentation.widget.MovieListListener
 
 class MovieSingleMainWidget @JvmOverloads constructor(
     context: Context,
@@ -22,6 +23,7 @@ class MovieSingleMainWidget @JvmOverloads constructor(
     private lateinit var viewModel: MovieSingleMainViewModel
     private val viewModelStore = ViewModelStore()
     private val ivMoviePoster by lazy { findViewById<ImageView>(R.id.iv_movie_poster) }
+    private var listener: MovieListListener? = null
 
     init {
         LayoutInflater.from(context).inflate(R.layout.layout_widget_movie_single_main, this, false)
@@ -32,7 +34,7 @@ class MovieSingleMainWidget @JvmOverloads constructor(
         initViewModel()
         viewModel.getMovieDetail()
         ivMoviePoster.setOnClickListener {
-
+            listener?.onMovieClicked(viewModel.movie.value?.id ?: 0)
         }
     }
 
@@ -65,4 +67,7 @@ class MovieSingleMainWidget @JvmOverloads constructor(
         }
     }
 
+    fun setListener(listener: MovieListListener) {
+        this.listener = listener
+    }
 }

@@ -3,11 +3,13 @@ package com.luckyfriday.netflixclone.presentation.maincomponent.viewholder
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.luckyfriday.netflixclone.R
+import com.luckyfriday.netflixclone.presentation.widget.MovieListListener
 import com.luckyfriday.netflixclone.presentation.widget.regular.MovieListRegularWidget
 
 class ListRegularViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-    fun bind(category: String) {
+    fun bind(category: String, listener: MovieListListener) {
         val regularListWidget = itemView.findViewById<MovieListRegularWidget>(R.id.widget_list_regular)
         regularListWidget.setCategory(category)
+        regularListWidget.setListener(listener)
     }
 }

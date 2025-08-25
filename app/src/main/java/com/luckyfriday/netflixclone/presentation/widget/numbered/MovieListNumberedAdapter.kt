@@ -10,13 +10,15 @@ import com.bumptech.glide.Glide
 import com.luckyfriday.netflixclone.R
 import com.luckyfriday.netflixclone.domain.entities.movies.Movie
 import com.luckyfriday.netflixclone.domain.utils.ImageUtils.toImageUrl
+import com.luckyfriday.netflixclone.presentation.widget.MovieListListener
 
 class MovieListNumberedAdapter(
-    private val movies: List<Movie>
+    private val movies: List<Movie>,
+    private val listener: MovieListListener?
 ) : RecyclerView.Adapter<MovieListNumberedAdapter.MovieListNumberedViewHolder>() {
 
     class MovieListNumberedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(movie: Movie) {
+        fun bind(movie: Movie, listener: MovieListListener?) {
             val posterImageView: ImageView = itemView.findViewById(R.id.iv_poster)
             Glide.with(itemView.context)
                 .load(movie.posterPath.toImageUrl())
@@ -24,6 +26,9 @@ class MovieListNumberedAdapter(
                 .into(posterImageView)
             val tvRank: TextView = itemView.findViewById(R.id.tv_rank)
             tvRank.text = (adapterPosition + 1).toString()
+            posterImageView.setOnClickListener {
+                listener?.onMovieClicked(movie.id)
+            }
         }
     }
 
@@ -35,7 +40,7 @@ class MovieListNumberedAdapter(
 
     override fun onBindViewHolder(holder: MovieListNumberedViewHolder, position: Int) {
         val movie = movies[position]
-        holder.bind(movie)
+        holder.bind(movie, listener)
     }
 
     override fun getItemCount(): Int {
