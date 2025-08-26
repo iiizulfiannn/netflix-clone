@@ -10,6 +10,7 @@ import com.luckyfriday.netflixclone.domain.usecases.GetMovieDetailUseCase
 import com.luckyfriday.netflixclone.domain.usecases.GetMovieListUseCase
 import com.luckyfriday.netflixclone.domain.usecases.GetMovieRecommendationUseCase
 import com.luckyfriday.netflixclone.domain.usecases.GetVideosUseCase
+import com.luckyfriday.netflixclone.presentation.detail.DetailViewModel
 import com.luckyfriday.netflixclone.presentation.hot.HotViewModel
 import com.luckyfriday.netflixclone.presentation.widget.numbered.MovieListNumberedViewModel
 import com.luckyfriday.netflixclone.presentation.widget.regular.MovieListRegularViewModel
@@ -47,6 +48,7 @@ class AppContainer(context: Context) {
             registerCreator(MovieListRegularViewModel::class.java) { MovieListRegularViewModel(getMovieListUseCase) }
             registerCreator(MovieListNumberedViewModel::class.java) { MovieListNumberedViewModel(getMovieListUseCase) }
             registerCreator(HotViewModel::class.java) { HotViewModel(getMovieListUseCase) }
+            registerCreator(DetailViewModel::class.java) { DetailViewModel(getMovieDetailUseCase, getMovieRecommendationUseCase, getVideosUseCase) }
         }
     }
 }
