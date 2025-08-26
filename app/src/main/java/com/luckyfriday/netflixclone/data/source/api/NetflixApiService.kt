@@ -1,8 +1,8 @@
 package com.luckyfriday.netflixclone.data.source.api
 
 import com.luckyfriday.netflixclone.data.dto.VideosResponseDTO
-import com.luckyfriday.netflixclone.data.dto.movies.MovieDetailResponseDTO
-import com.luckyfriday.netflixclone.data.dto.movies.MovieRecommendationResponseDTO
+import com.luckyfriday.netflixclone.data.dto.movies.MovieDetailsResponseDTO
+import com.luckyfriday.netflixclone.data.dto.movies.MovieRecommendationsResponseDTO
 import com.luckyfriday.netflixclone.data.dto.movies.MovieResponseDTO
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -30,12 +30,12 @@ interface NetflixApiService {
     suspend fun getMovieDetail(
         @Path("movie_id") movieId: Int,
         @Query("language") language: String = "en-US"
-    ): MovieDetailResponseDTO
+    ): MovieDetailsResponseDTO
 
     @GET("movie/{movie_id}/recommendations")
     suspend fun getMovieRecommendations(
         @Path("movie_id") movieId: Int,
         @Query("language") language: String = "en-US",
         @Query("page") page: Int = 1
-    ): MovieRecommendationResponseDTO
+    ): MovieRecommendationsResponseDTO
 }

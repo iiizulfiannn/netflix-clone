@@ -8,6 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.findViewTreeLifecycleOwner
+import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.luckyfriday.netflixclone.MyApplication
@@ -45,7 +46,7 @@ class MovieListRegularWidget @JvmOverloads constructor(
     private fun initViewModel() {
         val appContainer = (context.applicationContext as? MyApplication)?.appContainer
         appContainer?.let {
-            findViewTreeLifecycleOwner()?.let { lifecycleOwner ->
+            findViewTreeViewModelStoreOwner()?.let { lifecycleOwner ->
                 viewModel = ViewModelProvider(
                     viewModelStore,
                     it.provideViewModelFactory()
@@ -73,7 +74,7 @@ class MovieListRegularWidget @JvmOverloads constructor(
 
     fun setCategory(category: String) {
         this.category = category
-        tvTitle.text
+        tvTitle.text = category
     }
 
     fun setListener(listener: MovieListListener) {

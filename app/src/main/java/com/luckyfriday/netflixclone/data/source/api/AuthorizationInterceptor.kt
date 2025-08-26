@@ -6,6 +6,8 @@ import okhttp3.Response
 class AuthorizationInterceptor(private val token: String) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request().newBuilder()
+            .header("Content-Type", "application/json;charset=utf-8")
+            .header("Accept", "application/json")
             .header("Authorization", "Bearer $token")
             .build()
         return chain.proceed(request)

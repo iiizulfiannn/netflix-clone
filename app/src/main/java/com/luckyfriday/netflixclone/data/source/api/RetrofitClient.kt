@@ -1,6 +1,7 @@
 package com.luckyfriday.netflixclone.data.source.api
 
 import android.content.Context
+import android.util.Log
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

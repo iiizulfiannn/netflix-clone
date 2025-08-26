@@ -6,15 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.luckyfriday.netflixclone.MyApplication
 import com.luckyfriday.netflixclone.R
 import com.luckyfriday.netflixclone.domain.entities.movies.Movie
 import com.luckyfriday.netflixclone.presentation.widget.MovieListListener
+import kotlin.getValue
 
 class HotFragment : Fragment(), MovieListListener {
 
+    private val navController by lazy { findNavController() }
     private lateinit var rvMovieList: RecyclerView
     private lateinit var viewModel: HotViewModel
 
@@ -56,6 +59,8 @@ class HotFragment : Fragment(), MovieListListener {
     }
 
     override fun onMovieClicked(movieId: Int) {
-        TODO("Not yet implemented")
+        val bundle = Bundle()
+        bundle.putInt("movieId", movieId)
+        navController.navigate(R.id.action_hotFragment_to_detailFragment, bundle)
     }
 }

@@ -8,6 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.findViewTreeLifecycleOwner
+import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import com.bumptech.glide.Glide
 import com.luckyfriday.netflixclone.MyApplication
 import com.luckyfriday.netflixclone.R
@@ -26,7 +27,7 @@ class MovieSingleMainWidget @JvmOverloads constructor(
     private var listener: MovieListListener? = null
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.layout_widget_movie_single_main, this, false)
+        LayoutInflater.from(context).inflate(R.layout.layout_widget_movie_single_main, this, true)
     }
 
     override fun onAttachedToWindow() {
@@ -44,9 +45,9 @@ class MovieSingleMainWidget @JvmOverloads constructor(
     }
 
     private fun initViewModel() {
-        val appContainer = (context?.applicationContext as? MyApplication)?.appContainer
+        val appContainer = (context.applicationContext as? MyApplication)?.appContainer
         appContainer?.let {
-            findViewTreeLifecycleOwner()?.let { lifecycleOwner ->
+            findViewTreeViewModelStoreOwner()?.let { lifecycleOwner ->
                 viewModel = ViewModelProvider(
                     viewModelStore,
                     it.provideViewModelFactory()

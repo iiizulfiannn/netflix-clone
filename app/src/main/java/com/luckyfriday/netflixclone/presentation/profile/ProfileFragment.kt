@@ -5,14 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.luckyfriday.netflixclone.R
 import com.luckyfriday.netflixclone.domain.entities.LayoutDataItem
 import com.luckyfriday.netflixclone.presentation.maincomponent.adapter.MainAdapter
 import com.luckyfriday.netflixclone.presentation.widget.MovieListListener
+import kotlin.getValue
 
 class ProfileFragment : Fragment(), MovieListListener {
+
+    private val navController by lazy { findNavController() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +52,8 @@ class ProfileFragment : Fragment(), MovieListListener {
     }
 
     override fun onMovieClicked(movieId: Int) {
-        TODO("Not yet implemented")
+        val bundle = Bundle()
+        bundle.putInt("movieId", movieId)
+        navController.navigate(R.id.action_profileFragment_to_detailFragment, bundle)
     }
 }

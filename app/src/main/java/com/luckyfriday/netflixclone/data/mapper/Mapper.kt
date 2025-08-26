@@ -7,8 +7,8 @@ import com.luckyfriday.netflixclone.data.dto.SpokenLanguageDTO
 import com.luckyfriday.netflixclone.data.dto.VideoResultDTO
 import com.luckyfriday.netflixclone.data.dto.VideosResponseDTO
 import com.luckyfriday.netflixclone.data.dto.movies.MovieDTO
-import com.luckyfriday.netflixclone.data.dto.movies.MovieDetailResponseDTO
-import com.luckyfriday.netflixclone.data.dto.movies.MovieRecommendationResponseDTO
+import com.luckyfriday.netflixclone.data.dto.movies.MovieDetailsResponseDTO
+import com.luckyfriday.netflixclone.data.dto.movies.MovieRecommendationsResponseDTO
 import com.luckyfriday.netflixclone.data.dto.movies.MovieRecommendationResultDTO
 import com.luckyfriday.netflixclone.data.dto.movies.MovieResponseDTO
 import com.luckyfriday.netflixclone.domain.entities.Genre
@@ -18,7 +18,7 @@ import com.luckyfriday.netflixclone.domain.entities.SpokenLanguage
 import com.luckyfriday.netflixclone.domain.entities.VideoResult
 import com.luckyfriday.netflixclone.domain.entities.VideosResponse
 import com.luckyfriday.netflixclone.domain.entities.movies.Movie
-import com.luckyfriday.netflixclone.domain.entities.movies.MovieDetail
+import com.luckyfriday.netflixclone.domain.entities.movies.MovieDetails
 import com.luckyfriday.netflixclone.domain.entities.movies.MovieRecommendationResult
 import com.luckyfriday.netflixclone.domain.entities.movies.MovieRecommendations
 import com.luckyfriday.netflixclone.domain.entities.movies.MovieResponse
@@ -33,12 +33,12 @@ class Mapper {
         return movieResponseDTO.toMovieResponse()
     }
 
-    fun mapMovieDetailResponse(movieDetailResponseDTO: MovieDetailResponseDTO): MovieDetail {
+    fun mapMovieDetailResponse(movieDetailResponseDTO: MovieDetailsResponseDTO): MovieDetails {
         return movieDetailResponseDTO.toMovieDetails()
     }
 
-    fun mapMovieRecommendationResponse(movieRecommendationResponseDTO: MovieRecommendationResponseDTO): MovieRecommendations {
-        return movieRecommendationResponseDTO.toMovieRecommendations()
+    fun mapMovieRecommendationResponse(movieRecommendationsResponseDTO: MovieRecommendationsResponseDTO): MovieRecommendations {
+        return movieRecommendationsResponseDTO.toMovieRecommendations()
     }
 
     private fun VideosResponseDTO.toVideoResponse(): VideosResponse {
@@ -91,8 +91,8 @@ class Mapper {
         )
     }
 
-    private fun MovieDetailResponseDTO.toMovieDetails(): MovieDetail {
-        return MovieDetail(
+    private fun MovieDetailsResponseDTO.toMovieDetails(): MovieDetails {
+        return MovieDetails(
             adult = adult,
             backdropPath = backdropPath,
             belongsToCollection = belongsToCollection,
@@ -153,7 +153,7 @@ class Mapper {
         )
     }
 
-    private fun MovieRecommendationResponseDTO.toMovieRecommendations(): MovieRecommendations {
+    private fun MovieRecommendationsResponseDTO.toMovieRecommendations(): MovieRecommendations {
         return MovieRecommendations(
             page = page,
             results = results.map { it.toMovieRecommendationResult() },

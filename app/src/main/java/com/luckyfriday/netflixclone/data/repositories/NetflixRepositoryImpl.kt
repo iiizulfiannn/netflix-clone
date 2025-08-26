@@ -3,7 +3,7 @@ package com.luckyfriday.netflixclone.data.repositories
 import com.luckyfriday.netflixclone.data.mapper.Mapper
 import com.luckyfriday.netflixclone.data.source.api.NetflixApiService
 import com.luckyfriday.netflixclone.domain.entities.VideosResponse
-import com.luckyfriday.netflixclone.domain.entities.movies.MovieDetail
+import com.luckyfriday.netflixclone.domain.entities.movies.MovieDetails
 import com.luckyfriday.netflixclone.domain.entities.movies.MovieRecommendations
 import com.luckyfriday.netflixclone.domain.entities.movies.MovieResponse
 import com.luckyfriday.netflixclone.domain.repositories.NetflixRepository
@@ -22,7 +22,7 @@ class NetflixRepositoryImpl(
         return mapper.mapMovieResponse(response)
     }
 
-    override suspend fun getMovieDetail(movieId: Int): MovieDetail {
+    override suspend fun getMovieDetail(movieId: Int): MovieDetails {
         val response = netflixApiService.getMovieDetail(movieId)
         return mapper.mapMovieDetailResponse(response)
     }

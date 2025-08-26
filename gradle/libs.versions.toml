@@ -19,6 +19,7 @@ navigationFragmentKtx = "2.8.2"
 navigationUiKtx = "2.8.2"
 youtubePlayer = "12.0.0"
 outlineTextView = "1.0.5"
+lottie = "6.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -39,6 +40,7 @@ androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navi
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 youtube-player = { group = "com.pierfrancescosoffritti.androidyoutubeplayer", name = "core", version.ref = "youtubePlayer" }
 outlinetextview = { group = "com.github.iamBedant", name = "OutlineTextView", version.ref = "outlineTextView" }
+lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

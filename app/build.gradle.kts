@@ -65,6 +65,9 @@ dependencies {
     // youtube player
     implementation(libs.youtube.player)
 
+    // lottie
+    implementation(libs.lottie)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

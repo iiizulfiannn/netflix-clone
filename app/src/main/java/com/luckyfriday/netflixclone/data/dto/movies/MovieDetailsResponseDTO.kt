@@ -6,7 +6,7 @@ import com.luckyfriday.netflixclone.data.dto.ProductionCompanyDTO
 import com.luckyfriday.netflixclone.data.dto.ProductionCountryDTO
 import com.luckyfriday.netflixclone.data.dto.SpokenLanguageDTO
 
-data class MovieDetailResponseDTO(
+data class MovieDetailsResponseDTO(
     @SerializedName("adult") val adult: Boolean = false,
     @SerializedName("backdrop_path") val backdropPath: String = "",
     @SerializedName("belongs_to_collection") val belongsToCollection: Any?,
@@ -32,5 +32,5 @@ data class MovieDetailResponseDTO(
     @SerializedName("video") val video: Boolean = false,
     @SerializedName("vote_average") val voteAverage: Double = 0.0,
     @SerializedName("vote_count") val voteCount: Int = 0,
-    @SerializedName("original_country") val originCountry: List<String> = emptyList()
+    @SerializedName("origin_country") val originCountry: List<String> = emptyList()
 )

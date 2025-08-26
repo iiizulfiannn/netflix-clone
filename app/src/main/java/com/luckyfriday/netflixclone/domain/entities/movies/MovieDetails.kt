@@ -5,7 +5,7 @@ import com.luckyfriday.netflixclone.domain.entities.ProductionCompany
 import com.luckyfriday.netflixclone.domain.entities.ProductionCountry
 import com.luckyfriday.netflixclone.domain.entities.SpokenLanguage
 
-data class MovieDetail(
+data class MovieDetails(
     val adult: Boolean,
     val backdropPath: String,
     val belongsToCollection: Any?,

@@ -26,7 +26,7 @@ class MovieListRegularAdapter(
                 .into(posterImageView)
             val ivRank: ImageView = itemView.findViewById(R.id.iv_rank)
             ivRank.visibility = if (movie.voteAverage > 7) View.VISIBLE else View.GONE
-            val playButton = itemView.findViewById<ImageView>(R.id.btn_play)
+            val playButton = itemView.findViewById<ImageView>(R.id.play_view)
             playButton.visibility = if (showPlayButton) View.VISIBLE else View.GONE
             posterImageView.setOnClickListener {
                 listener?.onMovieClicked(movie.id)
